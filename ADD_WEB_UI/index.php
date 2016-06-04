@@ -40,7 +40,7 @@ and open the template in the editor.
                </script>
 	</head>
 	<body>
-            <div class="container">
+            <div class="container-fluid">
 			<ul id="gn-menu" class="gn-menu-main">
 				<li class="gn-trigger">
 					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
@@ -78,9 +78,11 @@ and open the template in the editor.
 		<script src="js/gnmenu.js"></script>
 		<script>
 			new gnMenu( document.getElementById( 'gn-menu' ) );
-		</script>                              
-                <iframe style="width:100%;height:800px;margin-top:62px;" id="adminFrame">
+		</script>      
+                <div class="jumbotron">
+                <iframe class="" style="width:100%;height:700px;margin-top:62px;" id="adminFrame">
                     
                 </iframe>
+                    </div>
 	</body>
 </html>

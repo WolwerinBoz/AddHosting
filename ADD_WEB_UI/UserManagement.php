@@ -28,8 +28,16 @@ and open the template in the editor.
         <script src="jqwidgets/jqxpanel.js" type="text/javascript"></script>
         <script type="text/javascript">
         $(document).ready(function () {
-            var url = "../ADD_WEB_BL/User.php/LoadUserDataToGrid";
-
+            var data = [];
+            jQuery.ajax({
+            type: "POST",
+            url: 'User.php?method=LoadUserDataToGrid',
+            dataType: 'json'
+            success: function (_data) {
+                    data = _data;
+                    alert(data + "kjnkj");
+                    }
+            });
             // prepare the data
             var source =
             {
@@ -43,8 +51,7 @@ and open the template in the editor.
                     { name: 'Name', type: 'string' },
                     { name: 'Email', type: 'string' }
                 ],
-                id: 'id',
-                url: url
+                localdata: data
             };
             var dataAdapter = new $.jqx.dataAdapter(source);
 
@@ -75,9 +82,15 @@ and open the template in the editor.
         <?php
         // put your code here
         ?>
-        <div style="margin: 8% 15% 0% 5%;" id='jqxWidget'>
-        <div style="margin-left: 20px; float: left;" id="jqxgrid"></div>
-    </div>
-
+        <Div class="container">
+            <div class="btn-group col-lg-1"style="float: right;">
+                <button class="btn btn-primary">New</button>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 col-md-12"  id='jqxWidget'>
+                    <div style="margin-left: 20px; float: left;" id="jqxgrid"></div>
+                </div>
+            </div>
+        </Div>
     </body>
 </html>
